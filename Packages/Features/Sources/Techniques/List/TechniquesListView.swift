@@ -3,7 +3,6 @@ import DesignSystem
 import Networking
 import Models
 
-@MainActor
 public struct TechniquesListView: View {
   @Environment(Networking.self) private var networking
   
