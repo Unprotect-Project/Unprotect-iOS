@@ -4,6 +4,7 @@ import Models
 
 struct BadgesView: View {
   let technique: Technique
+  let categories: [Categorie]
   let size: Size
   
   enum Size {
@@ -13,14 +14,16 @@ struct BadgesView: View {
   var body: some View {
     ScrollView(.horizontal) {
       HStack(spacing: 8) {
-        ForEach(technique.categories) { categorie in
-          makeBadge(title: categorie.label, color: .uTechniques)
+        ForEach(technique.category, id: \.self) { category in
+          if let category = categories.first(where: { $0.id == category }) {
+            makeBadge(title: category.label, color: .uTechniques)
+          }
         }
-        if !technique.snippets.isEmpty {
-          makeBadge(title: "\(technique.snippets.count) Snippet(s)", color: .uSnippets)
+        if !technique.attachments.isEmpty {
+          makeBadge(title: "\(technique.attachments.count) Attachment(s)", color: .uSnippets)
         }
-        if !technique.detectionRules.isEmpty {
-          makeBadge(title: "\(technique.detectionRules.count) Rule(s)", color: .uRules)
+        if !technique.rules.isEmpty {
+          makeBadge(title: "\(technique.rules.count) Rule(s)", color: .uRules)
         }
         if size == .expanded {
           if !technique.tags.isEmpty {
@@ -31,6 +34,8 @@ struct BadgesView: View {
         }
       }
     }
+    .scrollIndicators(.hidden)
+    .scrollClipDisabled()
   }
   
   private func makeBadge(title: String, color: Color) -> some View {

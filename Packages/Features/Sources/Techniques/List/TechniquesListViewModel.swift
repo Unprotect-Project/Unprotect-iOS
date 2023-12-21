@@ -1,26 +1,42 @@
 import SwiftUI
 import Models
 import Networking
+import Observation
 
 @MainActor
-class TechniquesListViewModel: ObservableObject {
+@Observable class TechniquesListViewModel {
   enum State {
     case loading
     case error(error: Error)
-    case data(techniques: Results<Technique>)
+    case data(techniques: [Technique], categories: [Categorie])
   }
   
-  @Published var state: State = .loading
-  @Published var searchText: String = ""
+  var state: State = .loading
+  var searchText: String = ""
   
   init() { }
   
-  func fetchTechniques() async {
+  func fetchData() async {
+    async let techniques = fetchTechniques()
+    async let categories = fetchCategories()
+    self.state = await .data(techniques: techniques, categories: categories)
+  }
+  
+  private func fetchTechniques() async -> [Technique] {
     do {
       let data: Results<Technique> = try await Networking.shared.fetch(endpoint: .techniques, page: 1)
-      self.state = .data(techniques: data)
-    } catch let error {
-      self.state = .error(error: error)
+      return data.results
+    } catch {
+      return []
+    }
+  }
+  
+  private func fetchCategories() async -> [Categorie] {
+    do {
+      let data: Results<Categorie> = try await Networking.shared.fetch(endpoint: .categories, page: 1)
+      return data.results
+    } catch {
+      return []
     }
   }
 }

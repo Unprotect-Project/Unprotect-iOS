@@ -2,7 +2,6 @@ import SwiftUI
 import DesignSystem
 import Models
 
-@available(iOS 16.0, *)
 public struct TechniqueDetailView: View {
   let technique: Technique
   
@@ -11,8 +10,8 @@ public struct TechniqueDetailView: View {
   
   public init(technique: Technique) {
     self.technique = technique
-    self.selectedSnippet = technique.snippets.first?.id ?? 0
-    self.selectedRule = technique.detectionRules.first?.id ?? 0
+    self.selectedSnippet = 0
+    self.selectedRule = 0
   }
   
   public var body: some View {
@@ -21,12 +20,14 @@ public struct TechniqueDetailView: View {
       ScrollView {
         LazyVStack(alignment: .leading, spacing: 24) {
           descriptionSection
+          /*
           if !technique.snippets.isEmpty {
             snippetsSection
           }
           if !technique.detectionRules.isEmpty {
             rulesSection
           }
+           */
           infoSection
         }
         .background(Color.uBackround)
@@ -48,7 +49,7 @@ public struct TechniqueDetailView: View {
   @ViewBuilder
   private var infoSection: some View {
     makeSection(title: "Info")
-    BadgesView(technique: technique, size: .expanded)
+    BadgesView(technique: technique, categories: [], size: .expanded)
       .padding(.horizontal, 12)
   }
   
@@ -56,6 +57,7 @@ public struct TechniqueDetailView: View {
   private var snippetsSection: some View {
     makeSection(title: "Snippets")
     
+    /*
     Picker("Language", selection: $selectedSnippet) {
       ForEach(technique.snippets) { snippet in
         Text(snippet.language.label)
@@ -64,7 +66,9 @@ public struct TechniqueDetailView: View {
     }
     .pickerStyle(.segmented)
     .padding(.horizontal, 12)
+     */
 
+    /*
     ScrollView {
       Text(technique.snippets.first{ $0.id == selectedSnippet }?.plainCode ?? "")
         .foregroundColor(.uCodeColor)
@@ -77,6 +81,7 @@ public struct TechniqueDetailView: View {
     .cornerRadius(6)
     .padding(.horizontal, 12)
     .frame(maxHeight: 300)
+     */
   }
   
   
@@ -84,6 +89,7 @@ public struct TechniqueDetailView: View {
   private var rulesSection: some View {
     makeSection(title: "Detection Rules")
     
+    /*
     Picker("Detection Rules", selection: $selectedRule) {
       ForEach(technique.detectionRules) { rule in
         Text(rule.type.name)
@@ -92,6 +98,7 @@ public struct TechniqueDetailView: View {
     }
     .pickerStyle(.segmented)
     .padding(.horizontal, 12)
+     
 
     ScrollView {
       Text(technique.detectionRules.first{ $0.id == selectedRule }?.rule ?? "")
@@ -105,6 +112,7 @@ public struct TechniqueDetailView: View {
     .cornerRadius(6)
     .padding(.horizontal, 12)
     .frame(maxHeight: 300)
+     */
   }
   
   private func makeSection(title: String) -> some View {
@@ -120,10 +128,8 @@ public struct TechniqueDetailView: View {
   }
 }
 
-@available(iOS 16.0, *)
-struct TechniqueDetailView_Previews: PreviewProvider {
-  static var previews: some View {
-    TechniqueDetailView(technique: previewTechnique)
-  }
+#Preview {
+  TechniqueDetailView(technique: previewTechnique)
 }
+
 

@@ -19,7 +19,7 @@ public struct Networking {
     var components = URLComponents()
     components.scheme = "https"
     components.host = "unprotect.it"
-    components.path = "/api/\(endpoint.rawValue)"
+    components.path = "/api/\(endpoint.rawValue).json"
     if let page {
       components.queryItems = [
         URLQueryItem(name: "page", value: String(page))

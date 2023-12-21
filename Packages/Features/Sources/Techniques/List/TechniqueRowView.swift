@@ -5,6 +5,7 @@ import DesignSystem
 @available(iOS 16.0, *)
 struct TechniqueRowView: View {
   let technique: Technique
+  let categories: [Categorie]
   
   var body: some View {
     VStack(alignment: .leading, spacing: 8) {
@@ -14,18 +15,15 @@ struct TechniqueRowView: View {
       Text(technique.description)
         .font(.body)
         .lineLimit(2)
-      BadgesView(technique: technique, size: .small)
+      BadgesView(technique: technique, categories: categories, size: .small)
     }
   }
 }
 
-@available(iOS 16.0, *)
-struct TechniqueRowView_Previews: PreviewProvider {
-  static var previews: some View {
-    List {
-      TechniqueRowView(technique: previewTechnique)
-      TechniqueRowView(technique: previewTechnique)
-      TechniqueRowView(technique: previewTechnique)
-    }.preferredColorScheme(.dark)
-  }
+#Preview {
+  List {
+    TechniqueRowView(technique: previewTechnique, categories: [])
+    TechniqueRowView(technique: previewTechnique, categories: [])
+    TechniqueRowView(technique: previewTechnique, categories: [])
+  }.preferredColorScheme(.dark)
 }

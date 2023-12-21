@@ -10,6 +10,7 @@
 		9F0AC67F286A195E00133F00 /* Techniques in Frameworks */ = {isa = PBXBuildFile; productRef = 9F0AC67E286A195E00133F00 /* Techniques */; };
 		9F6D3107286993510066CBF4 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 9F6D3106286993510066CBF4 /* DesignSystem */; };
 		9F6D3109286993510066CBF4 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 9F6D3108286993510066CBF4 /* Networking */; };
+		9FC42A852B335FFD00566E00 /* Snippets in Frameworks */ = {isa = PBXBuildFile; productRef = 9FC42A842B335FFD00566E00 /* Snippets */; };
 		9FFD247928698F670081CFF2 /* UnprotectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD246928698F650081CFF2 /* UnprotectApp.swift */; };
 		9FFD247D28698F670081CFF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FFD246B28698F670081CFF2 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 			files = (
 				9F6D3109286993510066CBF4 /* Networking in Frameworks */,
 				9F6D3107286993510066CBF4 /* DesignSystem in Frameworks */,
+				9FC42A852B335FFD00566E00 /* Snippets in Frameworks */,
 				9F0AC67F286A195E00133F00 /* Techniques in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +103,7 @@
 				9F6D3106286993510066CBF4 /* DesignSystem */,
 				9F6D3108286993510066CBF4 /* Networking */,
 				9F0AC67E286A195E00133F00 /* Techniques */,
+				9FC42A842B335FFD00566E00 /* Snippets */,
 			);
 			productName = "Unprotect (iOS)";
 			productReference = 9FFD247028698F670081CFF2 /* Unprotect.app */;
@@ -289,7 +292,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,12 +302,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.it.Unprotect;
 				PRODUCT_NAME = Unprotect;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Debug;
 		};
@@ -324,7 +328,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,12 +338,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.it.Unprotect;
 				PRODUCT_NAME = Unprotect;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -379,6 +384,10 @@
 		9F6D3108286993510066CBF4 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
+		};
+		9FC42A842B335FFD00566E00 /* Snippets */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Snippets;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

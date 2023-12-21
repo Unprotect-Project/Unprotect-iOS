@@ -5,6 +5,6 @@ public struct Snippet: Codable, Hashable, Identifiable {
   public let id: Int
   public let plainCode: String
   public let language: Language
+  public let technique: URL
+  public let description: String
 }
-
-let previewSnippet = Snippet(id: 0, plainCode: "some code \n some more code", language: previewLanguage)
