@@ -22,8 +22,8 @@ struct TechniqueRowView: View {
 
 #Preview {
   List {
-    TechniqueRowView(technique: previewTechnique, categories: [])
-    TechniqueRowView(technique: previewTechnique, categories: [])
-    TechniqueRowView(technique: previewTechnique, categories: [])
+    TechniqueRowView(technique: previewTechnique(), categories: [])
+    TechniqueRowView(technique: previewTechnique(), categories: [])
+    TechniqueRowView(technique: previewTechnique(), categories: [])
   }.preferredColorScheme(.dark)
 }

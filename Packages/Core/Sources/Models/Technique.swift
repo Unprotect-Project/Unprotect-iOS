@@ -10,10 +10,10 @@ public struct Technique: Codable, Identifiable, Hashable {
   public let rules: [Int]
 }
 
-public let previewTechnique = Technique(id: 0,
-                                        name: "Technique preview",
-                                        description: "Some description",
-                                        category: [0, 1, 2],
-                                        tags: "#preview",
-                                        attachments: [],
-                                        rules: [])
+public let previewTechnique = { Technique(id: Int.random(in: 0...100000),
+                                          name: "Technique preview",
+                                          description: "Some description",
+                                          category: [0, 1, 2],
+                                          tags: "#preview",
+                                          attachments: [],
+                                          rules: []) }

@@ -22,10 +22,7 @@ public struct TechniquesListView: View {
     List {
       switch state {
       case .loading:
-        ProgressView()
-        #if !os(visionOS)
-        .listRowBackground(Color.uBackround)
-        #endif
+        loadingView
       case let .error(error):
         Text(error.localizedDescription)
           .foregroundColor(.white)
@@ -60,6 +57,18 @@ public struct TechniquesListView: View {
     .task(id: searchText) {
       guard !searchText.isEmpty else { return }
       // TODO: Search
+    }
+  }
+  
+  private var loadingView: some View {
+    ForEach([previewTechnique(), previewTechnique(), previewTechnique()]) { technique in
+      TechniqueRowView(technique: technique, categories: [])
+        .redacted(reason: .placeholder)
+        #if !os(visionOS)
+        .listRowBackground(Color.uBackround)
+        .listRowSeparatorTint(Color.uSnippets)
+        .listRowSeparator(.visible)
+        #endif
     }
   }
   

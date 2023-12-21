@@ -129,7 +129,7 @@ public struct TechniqueDetailView: View {
 }
 
 #Preview {
-  TechniqueDetailView(technique: previewTechnique)
+  TechniqueDetailView(technique: previewTechnique())
 }
 
 
