@@ -1,17 +1,16 @@
 import Foundation
 
-public struct Networking {
+@Observable
+public class Networking {
   public enum Endpoint: String {
     case techniques, categories, snippets
     case detectionRules = "detection_rules"
     case snippetAuthors = "snippet_authors"
   }
-  
-  static public let shared = Networking()
-  
+    
   private let jsonDecoder = JSONDecoder()
   
-  private init() {
+  public init() {
     jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
   }
   

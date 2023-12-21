@@ -15,7 +15,7 @@ struct BadgesView: View {
     ScrollView(.horizontal) {
       HStack(spacing: 8) {
         ForEach(technique.category, id: \.self) { category in
-          if let category = categories.first(where: { $0.id == category }) {
+          if let category = categories.first(where: { $0.id == category }) {
             makeBadge(title: category.label, color: .uTechniques)
           }
         }

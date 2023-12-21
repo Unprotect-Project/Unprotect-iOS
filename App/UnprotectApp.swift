@@ -3,6 +3,7 @@ import Models
 import SwiftUI
 import Techniques
 import Snippets
+import Networking
 
 @main
 @MainActor struct UnprotectApp: App {
@@ -16,9 +17,9 @@ import Snippets
         snippetsTab.tabItem {
           Label("Snippets", systemImage: "cube")
         }
-        
       }
       .preferredColorScheme(.dark)
+      .environment(Networking())
     }
   }
   
